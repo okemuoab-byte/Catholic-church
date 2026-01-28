@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lux Mundi — Eucharistic Exposition</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="brand">
+        <div class="brand__title">Lux Mundi</div>
+        <div class="brand__subtitle">Live Eucharistic Exposition across the world</div>
+      </header>
+
+      <section class="tooltip" aria-live="polite">
+        <button class="tooltip__button" id="tooltipButton" aria-expanded="false">
+          What am I seeing?
+        </button>
+        <div class="tooltip__panel" id="tooltipPanel" role="dialog" aria-hidden="true">
+          Each light represents a Catholic church where the Blessed Sacrament is exposed in adoration at this moment.
+          Times are maintained by parishes and trusted contributors.
+        </div>
+      </section>
+
+      <section class="mode-toggle" role="tablist" aria-label="Time window">
+        <button class="mode-toggle__button" data-mode="now" role="tab" aria-selected="true">NOW</button>
+        <button class="mode-toggle__button" data-mode="24h" role="tab" aria-selected="false">NEXT 24H</button>
+        <button class="mode-toggle__button" data-mode="7d" role="tab" aria-selected="false">NEXT 7 DAYS</button>
+      </section>
+
+      <section class="panel" id="detailPanel" aria-hidden="true">
+        <button class="panel__close" id="panelClose" aria-label="Close panel">✕</button>
+        <div class="panel__header">
+          <h2 id="panelName">Church name</h2>
+          <p id="panelLocation">City, Country</p>
+          <p id="panelDiocese">Diocese</p>
+        </div>
+        <div class="panel__status" id="panelStatus"></div>
+        <div class="panel__schedule" id="panelSchedule"></div>
+        <div class="panel__actions">
+          <button class="panel__action">View full schedule</button>
+          <button class="panel__action">Suggest a correction</button>
+          <a class="panel__action" id="panelLink" href="#" target="_blank" rel="noreferrer">Parish website</a>
+        </div>
+      </section>
+
+      <canvas id="globe"></canvas>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
